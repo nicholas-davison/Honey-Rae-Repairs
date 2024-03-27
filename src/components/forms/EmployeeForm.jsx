@@ -17,7 +17,6 @@ export const EmployeeForm = ({ currentUser }) => {
 
     const handleSave = (event) => {
         event.preventDefault()
-
         const updatedEmployee = {
             id: employee.id,
             specialty: employee.specialty,
@@ -27,6 +26,7 @@ export const EmployeeForm = ({ currentUser }) => {
 
         updateEmployee(updatedEmployee).then(() => {
             navigate(`/employees/${currentUser.id}`)
+            console.log("whats up")
         })
     }
     return (
@@ -37,7 +37,7 @@ export const EmployeeForm = ({ currentUser }) => {
                     <label>Specialty: </label>
                     <input 
                     type="text" 
-                    value={employee.specialty} 
+                    value={employee?.specialty} 
                     onChange={(event) => {
                         const copy = {...employee}
                         copy.specialty = event.target.value
@@ -52,7 +52,7 @@ export const EmployeeForm = ({ currentUser }) => {
                     <label>Hourly Rate: </label>
                     <input 
                     type="number" 
-                    value={employee.rate} 
+                    value={employee?.rate} 
                     onChange={(event) => {
                         const copy = { ...employee }
                         copy.rate = event.target.value
