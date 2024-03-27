@@ -7,6 +7,7 @@ import { CustomerList } from "../components/customers/CustomersList.jsx"
 import { EmployeeList } from "../components/employees/EmployeeList.jsx"
 import { Route, Routes, Outlet } from "react-router-dom"
 import { useEffect, useState } from "react"
+import { EmployeeForm } from "../components/forms/EmployeeForm.jsx"
 
 
 export const ApplicationViews = () => {
@@ -28,7 +29,7 @@ export const ApplicationViews = () => {
         </>
       }> 
         <Route index element={<Welcome />} />
-        <Route path="tickets" element={<TicketList />} />
+        <Route path="tickets" element={<TicketList currentUser={currentUser}/>} />
         <Route path="customers" >
           <Route index element={<CustomerList />} />
           <Route path=":customerId" element={<CustomerDetails/>} />
@@ -37,6 +38,7 @@ export const ApplicationViews = () => {
            <Route index element={<EmployeeList />} />
            <Route path=":employeeId" element={<EmployeeDetails/>}/>
         </Route>
+        <Route path="/profile" element={<EmployeeForm currentUser={currentUser}/>}/>
       </Route>
   </Routes>
 )}
