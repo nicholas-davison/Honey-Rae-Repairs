@@ -22,3 +22,10 @@ export const updateTicket = (ticket) => {
     })
 
 }
+
+export const deleteTicket = (serviceTicketId) => {
+    return fetch(`http://localhost:8088/serviceTickets/${serviceTicketId}`, {
+        method: "DELETE"
+        }
+    )
+}
